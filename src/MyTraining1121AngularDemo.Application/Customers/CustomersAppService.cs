@@ -192,16 +192,49 @@ namespace MyTraining1121AngularDemo.Customers
         [AbpAuthorize(AppPermissions.Pages_Customers_Edit)]
         protected virtual async Task Update(CreateOrEditCustomerDto input)
         {
-            var customer = await _customerRepository.FirstOrDefaultAsync((long)input.Id);
-            ObjectMapper.Map(input, customer);
+            try
+            {
+              
+                var customer = await _customerRepository.FirstOrDefaultAsync((long)input.Id);
+                ObjectMapper.Map(input, customer);
+
+              
+                long Customerid = await _customerRepository.InsertOrUpdateAndGetIdAsync(customer);
+
+                var length = input.UserRefIds.Count;
+                foreach (long i in input.UserRefIds)
+                {
+
+                    var cust = new CustomerUser
+                    {
+
+                        CustomerId = Customerid,
+                        UserId = i,
+                        TotalAmount = 9878
+
+                    };
+                    await _customerUserRepository.InsertAsync(cust);
+                }
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
 
         }
 
         [AbpAuthorize(AppPermissions.Pages_Customers_Delete)]
         public async Task Delete(EntityDto<long> input)
         {
+           var customerUser = await _customerUserRepository.GetAll()
+                .Where(a=>a.CustomerId == input.Id)
+                .Select(a=>a.Id).FirstOrDefaultAsync();
+
+            await _customerUserRepository.DeleteAsync((long)customerUser);
+
             await _customerRepository.DeleteAsync(input.Id);
         }
+
 
         public async Task<FileDto> GetCustomersToExcel(GetAllCustomersForExcelInput input)
         {
