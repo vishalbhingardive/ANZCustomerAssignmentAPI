@@ -13,6 +13,7 @@ using MyTraining1121AngularDemo.MultiTenancy;
 using MyTraining1121AngularDemo.MultiTenancy.Accounting;
 using MyTraining1121AngularDemo.MultiTenancy.Payments;
 using MyTraining1121AngularDemo.Storage;
+using MyTraining1121AngularDemo.ToDoList;
 
 namespace MyTraining1121AngularDemo.EntityFrameworkCore
 {
@@ -22,6 +23,8 @@ namespace MyTraining1121AngularDemo.EntityFrameworkCore
 
         public virtual DbSet<Customer> Customers { get; set; }
 
+
+        public virtual DbSet<ToDoItem> ToDoItems { get; set; }
         /* Define an IDbSet for each entity of the application */
 
         public virtual DbSet<BinaryObject> BinaryObjects { get; set; }

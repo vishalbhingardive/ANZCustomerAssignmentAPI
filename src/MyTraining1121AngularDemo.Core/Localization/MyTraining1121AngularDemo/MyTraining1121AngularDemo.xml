@@ -3,6 +3,7 @@
   <texts>
     <text name="CustomerUsers">Customer users</text>
     <text name="CustomerUser">Customer user</text>
+    <text name="ToDoList">ToDoList</text>
     <text name="MyTraining1121AngularDemo.CustomerUsers.CustomerUser">CustomerUser</text>
     <text name="CustomerUsersHeaderInfo">Customer users header info</text>
     <text name="CreateNewCustomerUser">Create new customer user</text>

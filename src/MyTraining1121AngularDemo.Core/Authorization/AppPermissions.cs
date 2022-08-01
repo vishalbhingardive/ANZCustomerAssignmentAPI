@@ -16,6 +16,10 @@
         public const string Pages_Customers_Edit = "Pages.Customers.Edit";
         public const string Pages_Customers_Delete = "Pages.Customers.Delete";
 
+
+
+        public const string Pages_ToDoList = "Pages.ToDoList";
+
         //COMMON PERMISSIONS (FOR BOTH OF TENANTS AND HOST)
 
         public const string Pages = "Pages";

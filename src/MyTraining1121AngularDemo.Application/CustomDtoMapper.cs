@@ -45,6 +45,7 @@ using MyTraining1121AngularDemo.Notifications.Dto;
 using MyTraining1121AngularDemo.Organizations.Dto;
 using MyTraining1121AngularDemo.Sessions.Dto;
 using MyTraining1121AngularDemo.WebHooks.Dto;
+using MyTraining1121AngularDemo.ToDoList;
 
 namespace MyTraining1121AngularDemo
 {
@@ -61,6 +62,7 @@ namespace MyTraining1121AngularDemo
             configuration.CreateMap<UsersDto, User>().ReverseMap();
             configuration.CreateMap<UsersSecondDto, User>().ReverseMap();
             configuration.CreateMap<CustomerUserUserLookupTableDto, User>().ReverseMap();
+            configuration.CreateMap<ToDoItem, ToDoItemDto>().ReverseMap();
 
 
             configuration.CreateMap<CheckboxInputType, FeatureInputTypeDto>();

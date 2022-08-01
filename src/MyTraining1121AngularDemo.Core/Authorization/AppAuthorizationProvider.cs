@@ -30,7 +30,10 @@ namespace MyTraining1121AngularDemo.Authorization
 
             var pages = context.GetPermissionOrNull(AppPermissions.Pages) ?? context.CreatePermission(AppPermissions.Pages, L("Pages"));
 
-            
+
+            var ToDo = pages.CreateChildPermission(AppPermissions.Pages_ToDoList, L("ToDoList"));
+
+            //-------------------------------------------------------------------------------------------------------------------------
             var customers = pages.CreateChildPermission(AppPermissions.Pages_Customers, L("Customers"));
             customers.CreateChildPermission(AppPermissions.Pages_Customers_Create, L("CreateNewCustomer"));
             customers.CreateChildPermission(AppPermissions.Pages_Customers_Edit, L("EditCustomer"));
